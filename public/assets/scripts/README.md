@@ -1,1 +1,0 @@
-This is a placeholder to force creation of the scripts directory. This is where browserify will output browser-ready scripts.
