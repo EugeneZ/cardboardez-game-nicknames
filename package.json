@@ -4,6 +4,7 @@
   "author": "Eugene Zaretskiy",
   "version": "0.0.1",
   "private": true,
+  "main": "./src/client.js",
   "scripts": {
     "start": "npm run build && node server.js",
     "build": "browserify -t babelify -t require-globify client/main.js | uglifyjs - -c -m -o public/assets/scripts/client.js",
