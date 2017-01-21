@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const words = require('./src/words');
+const words = require('./words');
 
 module.exports.setup = function (game) {
     game.redwordsleft = 8;

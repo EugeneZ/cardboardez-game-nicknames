@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+import min from 'lodash/min';
 import autobind from 'autobind-decorator';
-import Paper from 'material-ui/Paper';
-import LinearProgress from 'material-ui/LinearProgress';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import { Paper } from 'material-ui';
+import { LinearProgress } from 'material-ui';
+import { RaisedButton } from 'material-ui';
+import { TextField }from 'material-ui';
 
 const styles = {
     bg: {
@@ -67,10 +67,10 @@ export default class PlayArea extends Component {
         }
         const game = this.props.games.find(game => game.id === this.props.params.id);
         const players = game._players.map(
-            player => Object.assign({ name: this.props.users.find(p=>p.id === player.id).name }, player )
+            player => Object.assign({ name: this.props.users.find(p => p.id === player.id).name }, player)
         );
 
-        const progress = ((9 - _.min([game.redwordsleft, game.bluewordsleft])) / 9) * 100;
+        const progress = ((9 - min([game.redwordsleft, game.bluewordsleft])) / 9) * 100;
         const me = players.find(player => player.id === this.props.user.id);
         const redleader = players.find(player => player.id === game.redleader);
         const blueleader = players.find(player => player.id === game.blueleader);
@@ -197,7 +197,7 @@ export default class PlayArea extends Component {
                                 }
 
                                 return <Paper key={word} style={style}
-                                              onClick={()=>this.onPickWord(word)}>{word}</Paper>
+                                              onClick={() => this.onPickWord(word)}>{word}</Paper>
                             }
                         )}
                     </div>

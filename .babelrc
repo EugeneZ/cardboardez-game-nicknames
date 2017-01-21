@@ -1,16 +1,4 @@
 {
   "presets": ["latest", "stage-0", "react"],
-  "plugins": ["transform-decorators-legacy"],
-  "env": {
-    "development": {
-      "plugins": [
-        ["react-transform", {
-          "transforms": [{
-            "transform": "livereactload/babel-transform",
-            "imports": ["react"]
-          }]
-        }]
-      ]
-    }
-  }
+  "plugins": ["transform-decorators-legacy"]
 }
