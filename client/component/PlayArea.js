@@ -62,16 +62,10 @@ export default class PlayArea extends Component {
     };
 
     render() {
-        if (!this.props.user || !this.props.user.id) {
-            return null;
-        }
-        const game = this.props.games.find(game => game.id === this.props.params.id);
-        const players = game._players.map(
-            player => Object.assign({ name: this.props.users.find(p => p.id === player.id).name }, player)
-        );
+        const { game, me } = this.props;
+        const players = game._players;
 
         const progress = ((9 - min([game.redwordsleft, game.bluewordsleft])) / 9) * 100;
-        const me = players.find(player => player.id === this.props.user.id);
         const redleader = players.find(player => player.id === game.redleader);
         const blueleader = players.find(player => player.id === game.blueleader);
         const redteam = players.filter(player => player.red);
@@ -228,8 +222,7 @@ export default class PlayArea extends Component {
     }
 
     onPickWord(word) {
-        const game = this.props.games.find(game => game.id === this.props.params.id);
-        const me = game._players.find(player => player.id === this.props.user.id);
+        const { game, me } = this.props;
         const isMyTurn = (me.red && game.redturn) || (me.blue && !game.redturn);
 
         if (game.mode === 'guess' && isMyTurn && !game.revealed[word]) {
@@ -238,8 +231,7 @@ export default class PlayArea extends Component {
     }
 
     onPass() {
-        const game = this.props.games.find(game => game.id === this.props.params.id);
-        const me = game._players.find(player => player.id === this.props.user.id);
+        const { game, me } = this.props;
         const isMyTurn = (me.red && game.redturn) || (me.blue && !game.redturn);
 
         if (game.mode === 'guess' && isMyTurn !== -1 && game.guesses) {
