@@ -2,7 +2,7 @@
   "name": "cardboardez-game-nicknames",
   "description": "CardboardEZ module for nicknames, a game similar to Vlaada Chvatil's Codenames.",
   "author": "Eugene Zaretskiy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./server.js",
   "scripts": {
     "test": "tape -r babel-register \"test/unit/**/*.js\""
