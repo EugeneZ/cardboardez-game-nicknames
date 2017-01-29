@@ -1,4 +1,6 @@
 /test
 .babelrc
+.idea
 yarn.lock
+cardboardez-game-nicknames.iml
 !/dist/client.js
