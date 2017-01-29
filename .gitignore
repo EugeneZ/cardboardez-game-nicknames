@@ -4,5 +4,6 @@
 .idea
 .project
 .settings
+/dist
 /node_modules
 cardboardez-game-nicknames.iml
